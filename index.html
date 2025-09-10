@@ -1,10 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+    <meta charset="UTF-8" />
+    <title>Apartment Association</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+            max-width: 900px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .member {
+            width: 150px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .section {
+            background: white;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+        }
+        .events ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        textarea, input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my first website hosted on GitHub Pages.</p>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="policies.html">Policies / Byelaws</a>
+</nav>
+
+<h1>Apartment Association</h1>
+
+<section class="section members">
+    <h2>Our 11 Members</h2>
+    <!-- Repeat this block for each member -->
+    <div class="member">
+        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Member 1" />
+        <p>John Doe</p>
+    </div>
+    <div class="member">
+        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Member 2" />
+        <p>Jane Smith</p>
+    </div>
+    <!-- Add all 11 members similarly -->
+</section>
+
+<section class="section complaints">
+    <h2>Complaint Section</h2>
+    <form id="complaintForm" onsubmit="submitComplaint(event)">
+        <label for="flatNumber">Flat Number:</label>
+        <input type="text" id="flatNumber" name="flatNumber" placeholder="Your Flat Number" required />
+
+        <label for="complaint">Complaint Details:</label>
+        <textarea id="complaint" name="complaint" rows="4" placeholder="Write your complaint here..." required></textarea>
+
+        <button type="submit">Submit Complaint</button>
+    </form>
+    <p id="complaintMessage" style="color:green; display:none;">Thank you! Your complaint has been submitted.</p>
+</section>
+
+<section class="section contacts">
+    <h2>Contact Numbers</h2>
+    <ul>
+        <li>President: +91-9876543210</li>
+        <li>Secretary: +91-9123456780</li>
+        <li>Maintenance: +91-9988776655</li>
+        <!-- Add more contacts as needed -->
+    </ul>
+</section>
+
+<section class="section events">
+    <h2>Upcoming Events</h2>
+    <ul>
+        <li>Community Meeting – 20th Sept 2025</li>
+        <li>Annual Festival Celebration – 1st Oct 2025</li>
+        <li>Tree Plantation Drive – 15th Oct 2025</li>
+    </ul>
+</section>
+
+<footer>
+    <p>© 2025 Apartment Association</p>
+</footer>
+
+<script>
+    function submitComplaint(event) {
+        event.preventDefault();
+        // In real use, this would send data to backend or email.
+        // Here we just show a thank you message.
+        document.getElementById('complaintMessage').style.display = 'block';
+        event.target.reset();
+    }
+</script>
+
 </body>
 </html>
